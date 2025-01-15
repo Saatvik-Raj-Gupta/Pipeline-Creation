@@ -27,10 +27,10 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox: #ConfigBox class lests us access
             content = yaml.safe_load(yaml_file)
             logger.info(f"yaml file: {path_to_yaml} loaded succesfully")
             return ConfigBox(content)
-        except BoxValueError:
-            raise ValueError("yaml file is empty")
-        except Exception as e:
-            raise e
+    except BoxValueError:
+        raise ValueError("yaml file is empty")
+    except Exception as e:
+        raise e
 
 @ensure_annotations
 def create_directories(path_to_directories: list, verbose = True):
@@ -95,7 +95,7 @@ def save_bins(data: Any, path: Path):
     logger.info(f"Binary file saved at: {path}")
 
 @ensure_annotations
-def get_size(path: Path) -. str:
+def get_size(path: Path) -> str:
     """Get file size in kilobytes
     
     Args:
